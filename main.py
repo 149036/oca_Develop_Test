@@ -25,18 +25,15 @@ with open("input_28.csv", "r") as input_file:
         student_scores[student][subject] += score
 
 # 通知簿を出力する
-for student in range(1, num_students + 1):
-    filename = f"生徒{student}.csv"
+for student in range(0, num_students):
+    filename = f"生徒{student + 1}.csv"
     with open(filename, "w", newline="") as output_file:
         writer = csv.writer(output_file)
         writer.writerow(["教科", "平均点", "順位", "成績", "判定"])
 
         for subject, scores in subject_scores.items():
-            # if len(scores[student]) == 0:
-            # break
-            print(len(scores[student]))
+            print(f"{student},{scores[student]}")
             avg_score = sum(scores[student]) / len(scores[student])
-            print(len(scores[student]))
             rank = (
                 sorted(
                     student_scores[student],
