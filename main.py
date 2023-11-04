@@ -32,7 +32,6 @@ for student in range(0, num_students):
         writer.writerow(["教科", "平均点", "順位", "成績", "判定"])
 
         for subject, scores in subject_scores.items():
-            print(f"{student},{scores[student]}")
             avg_score = sum(scores[student]) / len(scores[student])
             rank = (
                 sorted(
