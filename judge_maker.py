@@ -1,23 +1,19 @@
-def make_judge(grade="A", points=[10, 15, 20, 30, 40, 50, 60, 70, 80, 100]):
-    if grade == "A" or grade == "B" or grade == "C":
-        judge = 1
-    elif grade == "D":
+def make_judge(grade="D", points=[10, 15, 20, 30, 40, 50, 60, 70, 80, 100]):
+    a = [x for x in points if x < 10]
+    b = [x for x in points if x <= 30]
+
+    if len(a) > 0:
+        judge = 3
+    elif len(b) >= 3:
         judge = 2
-    elif grade == "E":
+    else:
+        judge = 1
+
+    if "A" == grade or "B" == grade or "C" == grade:
+        judge = 1
+    elif "D" == grade:
+        judge = 2
+    elif "E" == grade:
         judge = 3
 
-    count = 0
-    for i in points:
-        if i < 10:
-            judge = 3
-            break
-        elif i <= 30:
-            count += 1
-
-    if count >= 3:
-        judge = 2
-
     return judge
-
-
-print(make_judge())

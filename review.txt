@@ -1,0 +1,10 @@
+14, 16, 18行目のresult に入れる値が違いませんか？
+
+if is_failure or grade == 'E':
+    result = 3
+elif is_retest or grade == 'D':
+    result = 2
+elif grade in ('A', 'B', 'C'):
+    result = 1
+
+だと思います
